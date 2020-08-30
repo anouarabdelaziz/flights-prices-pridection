@@ -1,0 +1,124 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type=text/css href="{%static 'css/style.css'%}">   
+        <title>Flights Prices</title>
+  </head>
+  <body>
+      <header class="header_">    
+            
+                <div  class="col">
+                    <p >Envie de voyager vers l'une des 5 destinations les plus visitées par les algériens?
+                         éstimer le prix de votre billet de vol(aller-retour)
+                         à n'import quelle periode d'année
+                           et selon vos preference! </p>
+                </div>        
+     </header>
+     <div class="frm">
+                <div class="contain">
+                  <form action="predict" method="POST">
+                        {% csrf_token %}
+                    <div class="row" style="flex-direction : row;align-items: center">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Destination</h5>
+                                    <select name="destination" id="destination" required="required">
+                                        <option value="Paris">Paris</option>
+                                        <option value="Dubai">Dubai</option>
+                                        <option value="Istanbul">Istanbul</option>
+                                        <option value="Rome">Rome</option>
+                                        <option value="Madrid">Madrid</option>
+                                    </select>
+                                </div>                       
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Avec quelle compagnie souhaiterez-vous voyager?</h5>
+                                    <!-- Airline -->
+                                    <select name="compagnie" id="compagnie" required="required">
+                                        <option value="Air algerie" >Air algérie</option>
+                                        <option value="Air france">Air france</option>
+                                        <option value="Emirates">Emirates</option>
+                                        <option value="Vueling">Vueling</option>
+                                        <option value="Transavia france">Transavia france</option>
+                                        <option value="Iberia">Iberia</option>
+                                        <option value="Aliitalia">Aliitalia</option>
+                                        <option value="Turkish airlines">Turkish airlines</option>
+                                        <option value="Egyptair">Egyptair</option>
+                                        <option value="Ryan air">Ryan air</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">jour de départ(jour/heure) :</h5>
+                                    <input type="datetime-local" name="date_depart" id="date_depart" required="required">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">jour de retour :</h5>
+                                    <input type="date" name="date_arivee" id="date_arivee" required="required" style="border: black solid 1px;">
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>            
+                 
+                    <div class="row">
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Escale : </h5>
+                                        <select name="escale" id="escale" required="required">
+                                            <option value="0">Sans escale</option>
+                                            <option value="1">1 escale</option>
+                                            <option value="2">2 escale</option>
+                                            <option value="3">3 escale</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">a quelle heure souhaiterez-vous arivée a votre destination? :</h5>
+                                        <input type="time" name="lheure_darivee" id="lheure_darivee" required="required">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+        </div>
+
+                  <center><input  class="bttn" type="submit" value="soumettre" > 
+                    {% if output %}
+                   <h1 style="padding-top: 30px;">Votre requête est éstimé a : {{ output }} € </h1>{% endif %}  </center>         
+
+    <br><br><br><br>
+     <footer class="foot">
+        <center><h1 style="padding-top: 30px;color: aliceblue;"> <strong>BON VOYAGE !! </strong></h1></center>
+     </footer>
+    </form>
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,110 @@
+html, body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
+    background: rgba(97, 121, 168, 0.2);
+}
+    
+.header_{
+    height: 270px;
+    width: auto;
+    background: url("../images/bg5.png") no-repeat ;
+    background-position: 50%;
+    background-size: cover;
+    border-bottom: rgba(83, 83, 83, 0.925) solid 3px;
+    box-shadow: 0px 10px 5px #27272780;
+    -webkit-box-shadow: 0px 10px 5px #27272780;
+    -moz-box-shadow: 0px 10px 5px #27272780;
+    position: relative;
+    z-index: 999999;
+}
+.header::after{
+        background: rgba(97, 121, 168, 0.2);
+}
+    
+    
+.col{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    color: blue;
+    height: 200px;
+}
+    
+.col img{
+        padding-top: 10px;
+        height: 220px;
+        width: 600px;
+        padding-left: 100px;
+        border-end-end-radius: 8px;
+    
+}
+.col p{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        width: 550px;
+        height: 150px;
+        font-size: 28px;
+        padding-top: 10px;
+        padding-left: 10px;
+    
+}
+.frm{
+    top: 50%;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%, -50%);
+    background : linear-gradient(to left, #354, #3311cc) ;
+    height: 410px;
+    width: auto;
+    margin-bottom: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    }
+.frm input{
+    height: 30px;
+    width: 200px;
+    border: none;
+    border-radius: 3px;
+}
+.contain{
+    position: relative;
+    display: flex;
+    height:400px;
+    margin: auto;
+    
+    background : rgba(63, 45, 12, 0.3);
+    padding:10px 0px;
+    justify-content: center;
+    flex-direction: column;
+ }
+.frm label{
+    color: white;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.foot{
+    
+    background-color:#09020f;
+    height: 200px;
+    
+}
+.row{
+    height: 50px;
+    margin-bottom: 80px;
+ }
+.card-body{
+    display: flex;
+    flex-direction : column;
+}
+.bttn{
+    border-radius: 3px;
+    background: linear-gradient(to left, #521445, #415054);
+    border: none;
+    height: 40px;
+    width: 100px;
+    color: white;
+}
+    
